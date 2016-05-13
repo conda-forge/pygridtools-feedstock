@@ -5,7 +5,7 @@ Home: https://github.com/Geosyntec/pygridtools
 
 Package license: BSD 3-clause
 
-Feedstock license: BSD
+Feedstock license: BSD 3-Clause
 
 Summary: Miscellaneous utilities built upon pygridgen
 
@@ -69,6 +69,7 @@ Terminology
 
 Current build status
 ====================
+
 Linux: [![Circle CI](https://circleci.com/gh/conda-forge/pygridtools-feedstock.svg?style=svg)](https://circleci.com/gh/conda-forge/pygridtools-feedstock)
 OSX: [![TravisCI](https://travis-ci.org/conda-forge/pygridtools-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/pygridtools-feedstock) 
 Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/pygridtools-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/pygridtools-feedstock/branch/master)
