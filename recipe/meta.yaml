@@ -1,43 +1,44 @@
+{% set version = "0.2" %}
 package:
-    name: pygridtools
-    version: 0.2
+  name: pygridtools
+  version: {{ version }}
 
 source:
-    git_url: https://github.com/Geosyntec/pygridtools.git
-    git_tag: v0.2
+  url: https://github.com/Geosyntec/pygridtools/archive/v{{ version }}.tar.gz
+  sha256: 8a5d23c01b1d54bf14d7d62304d7321d84d66657e80864bb2453f42402ed40e1
 
 build:
-    number: 0
-    skip: True  # [win]
-    script: python setup.py install --single-version-externally-managed --record record.txt
+  number: 1000
+  skip: True  # [win]
+  script: "{{ PYTHON }} -m pip install . --no-deps -vv"
 
 requirements:
-    build:
-        - python
-        - setuptools
-    run:
-        - gridgen
-        - fiona
-        - python
-        - pandas
-        - numpy
-        - matplotlib
-        - pygridgen
+  host:
+    - python
+    - pip
+  run:
+    - python
+    - numpy
+    - scipy
+    - matplotlib
+    - fiona
+    - pandas
+    - geopandas
+    - gridgen
+    - pygridgen
+    - nose  # fixme: this should be removed upstream!
 
 test:
-    imports:
-        - pygridtools
-    commands:
-        - nosetests
-    requires:
-        - nose
+  imports:
+    - pygridtools
 
 about:
-    home: https://github.com/Geosyntec/pygridtools
-    license: BSD 3-clause
-    summary: Miscellaneous utilities built upon pygridgen
+  home: https://github.com/Geosyntec/pygridtools
+  license: BSD-3-Clause
+  license_file: LICENSE
+  summary: Miscellaneous utilities built upon pygridgen
 
 extra:
-    recipe-maintainers:
-        - ocefpaf
-        - phobson
+  recipe-maintainers:
+    - ocefpaf
+    - phobson
