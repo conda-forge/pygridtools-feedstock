@@ -9,15 +9,15 @@ source:
 
 build:
   number: 1004
-  skip: True  # [win]
-  script: "{{ PYTHON }} -m pip install . --no-deps -vv"
+  noarch: python
+  script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
   host:
-    - python
+    - python >=3.6
     - pip
   run:
-    - python
+    - python >=3.6
     - numpy
     - scipy
     - matplotlib-base
@@ -26,11 +26,16 @@ requirements:
     - geopandas
     - gridgen
     - pygridgen
-    - nose  # fixme: this should be removed upstream!
+    # fixme: this should be removed upstream!
+    - nose 
 
 test:
   imports:
     - pygridtools
+  commands:
+    - pip check
+  requires:
+    - pip
 
 about:
   home: https://github.com/Geosyntec/pygridtools
