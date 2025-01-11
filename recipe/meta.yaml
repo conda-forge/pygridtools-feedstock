@@ -8,16 +8,16 @@ source:
   sha256: 8a5d23c01b1d54bf14d7d62304d7321d84d66657e80864bb2453f42402ed40e1
 
 build:
-  number: 1004
+  number: 1005
   noarch: python
   script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
   host:
-    - python >=3.6,<3.12
+    - python {{ python_min }}
     - pip
   run:
-    - python >=3.6,<3.12
+    - python >={{ python_min }},<3.12
     - numpy
     - scipy
     - matplotlib-base
@@ -36,6 +36,7 @@ test:
     - pip check
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/Geosyntec/pygridtools
